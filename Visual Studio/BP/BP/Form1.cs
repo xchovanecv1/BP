@@ -201,7 +201,7 @@ namespace BP
             _serialPort = new SerialPort(comName);
 
             _serialPort.RtsEnable = true;
-
+            
             _serialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
 
             _serialPort.WriteTimeout = 200;
@@ -239,7 +239,7 @@ namespace BP
 
             worker.ReportProgress(30);
 
-            server.sendCommand("hi");
+            server.sendCommand(new SerialCommand("hi",server.command_hi));
             //server.sendCommand("list;");
 
             worker.ReportProgress(40);
@@ -306,8 +306,7 @@ namespace BP
             {
                 server.recieveData(indata);
             }
-
-            //Console.WriteLine(indata);
+            
         }
     
 

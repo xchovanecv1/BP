@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 
 namespace BP
 {
-    public partial class Form2 : Form
+    partial class Form2 : Form
     {
         /*
         MOVABLE FORM
@@ -99,7 +99,7 @@ namespace BP
             
             button1.PerformClick();
             try {
-                server.sendCommand("list;");
+                server.sendCommand(new SerialCommand("list;",server.command_list));
             } catch (Exception ex)
             {
 

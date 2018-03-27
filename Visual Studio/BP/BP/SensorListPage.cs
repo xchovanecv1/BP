@@ -36,12 +36,12 @@ namespace BP
 
         private void button2_Click(object sender, EventArgs e)
         {
-            SensorServer.Instance.sendCommand("load;");
+            SensorServer.Instance.sendCommand(new SerialCommand("load;", SensorServer.Instance.command_load));
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            SensorServer.Instance.sendCommand("save;");
+            SensorServer.Instance.sendCommand(new SerialCommand("save;", SensorServer.Instance.command_save));
 
         }
 
@@ -54,7 +54,7 @@ namespace BP
             if(frm.pin != -1 && frm.type != -1 && frm.update != -1)
             {
                 Console.WriteLine("dhtadd;" + frm.pin + ";" + frm.type + ";" + (frm.update) + ";");
-                SensorServer.Instance.sendCommand("dhtadd;"+frm.pin+";"+frm.type+";"+(frm.update)+";");
+                SensorServer.Instance.sendCommand(new SerialCommand("dhtadd;" + frm.pin + ";" + frm.type + ";" + (frm.update) + ";", SensorServer.Instance.command_dhtadd));
             }
 
         }

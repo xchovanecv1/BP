@@ -5,12 +5,13 @@ using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BP
 {
-    public class SensorServer
+    class SensorServer
     {
         public string UUID { get; set; }
         public int FlashSize { get; set; }
@@ -21,15 +22,22 @@ namespace BP
         private ArrayList dataIn = new ArrayList();
         private ArrayList cmdIn = new ArrayList();
         private ArrayList cmdOut = new ArrayList();
+        private Queue<SerialCommand> cmdPending = new Queue<SerialCommand>();
+
+        private SerialCommand pendingCommand = null;
 
         private Dictionary<int, DHTSensor> DHTSensors = new Dictionary<int, DHTSensor>();
+
+        private Thread comPortThread;
+
 
         private bool authenticated = false;
         private bool writeTimeOut = false;
 
         private static SensorServer _instance;
 
-        public static SensorServer Instance{
+        public static SensorServer Instance
+        {
             get
             {
                 return _instance;
@@ -38,7 +46,8 @@ namespace BP
 
         private string inputLine = "";
 
-        public SensorServer() {
+        public SensorServer()
+        {
             _instance = this;
         }
 
@@ -46,6 +55,9 @@ namespace BP
         {
             this.portName = COM;
             _instance = this;
+
+            this.comPortThread = new Thread(this.performCommandSend);
+            this.comPortThread.Start();
             //this.comPort = new SerialPort(COM);
         }
         public SensorServer(string COM, SerialPort serial)
@@ -53,6 +65,9 @@ namespace BP
             this.portName = COM;
             this.comPort = serial;
             _instance = this;
+
+            this.comPortThread = new Thread(this.performCommandSend);
+            this.comPortThread.Start();
         }
 
         public SensorServer(string COM, string UUID, int FlashSize, ArrayList options)
@@ -62,13 +77,16 @@ namespace BP
             this.UUID = UUID;
             this.FlashSize = FlashSize;
             _instance = this;
+
+            this.comPortThread = new Thread(this.performCommandSend);
+            this.comPortThread.Start();
         }
 
         public void closePort()
         {
             this.comPort.Close();
         }
- 
+
 
         public string toString()
         {
@@ -85,30 +103,57 @@ namespace BP
             return this.writeTimeOut;
         }
 
-        public bool sendCommand(string cmd)
+        public void performCommandSend()
         {
-            if(comPort.IsOpen)
+            SerialCommand scomand;
+            while (true)
             {
-                string[] command = cmd.Split(';');
-                if(command.Length > 0)
+                if (comPort != null && comPort.IsOpen && comPort.CtsHolding && pendingCommand == null)
                 {
-                    //comPort.CtsHolding;
-                    try
-                    {
-                        comPort.WriteLine(cmd);
-                        cmdOut.Add(command[0]);
-                    }
-                    catch(TimeoutException e)
-                    {
-                        this.writeTimeOut = true;
-                    }
-                    catch(Exception e)
-                    {
 
-                    }
+                    if (cmdPending.Count > 0)
+                    {
+                        scomand = cmdPending.Dequeue();
+                        //Console.WriteLine("IDE VEN:"+cmd);
+                        string[] command = scomand.cmd.Split(';');
+                        if (command.Length > 0)
+                        {
+                            //;
+                            try
+                            {
+                                comPort.WriteLine(scomand.cmd);
+                                pendingCommand = scomand;
 
-                    return true;
+                                cmdOut.Add(command[0]);
+                            }
+                            catch (TimeoutException e)
+                            {
+                                this.writeTimeOut = true;
+                            }
+                            catch (Exception e)
+                            {
+
+                            }
+                        }
+                    }
                 }
+                Thread.Sleep(100);
+            }
+        }
+
+        public bool sendCommand(String d)
+        {
+            return true;
+        }
+        public bool sendCommand(SerialCommand cmd)
+        {
+            if (comPort.IsOpen)
+            {
+                if (cmd != null)
+                {
+                    cmdPending.Enqueue(cmd);
+                }
+
             }
             return false;
         }
@@ -116,18 +161,18 @@ namespace BP
         private void addSensor(string data)
         {
             var regex = new Regex(@"\[([0-9]+)\]");
-            if(regex.IsMatch(data))
+            if (regex.IsMatch(data))
             {
                 string[] spl = regex.Split(data);
 
-                if(spl.Length == 3)
+                if (spl.Length == 3)
                 {
-                    if(spl[2].Contains("DHT"))
+                    if (spl[2].Contains("DHT"))
                     {
                         int ID = Int32.Parse(spl[1]);
 
                         string[] sensData = spl[2].Split(';');
-                        Console.WriteLine("SENS CREATE:"+ spl[2]);
+                        Console.WriteLine("SENS CREATE:" + spl[2]);
 
                         DHTSensor s = new DHTSensor(ID, Int32.Parse(sensData[1]), Int32.Parse(sensData[2]), Int32.Parse(sensData[3]));
 
@@ -141,25 +186,26 @@ namespace BP
                         s.tab = myTabPage;
 
 
-                        DHTSensors.Add(ID,s);
-                        
+                        DHTSensors.Add(ID, s);
+
 
                         SensorListControl.Instance.addSensorTab(myTabPage);
-                        
+
                     }
                 }
             }
         }
 
-        public void removesensor(int id, bool CMD=false)
+        public void removesensor(int id, bool CMD = false)
         {
             DHTSensor s;
             if (DHTSensors.TryGetValue(id, out s))
             {
                 if (!CMD)
                 {
-                    sendCommand("del;" + id + ";");
-                } else
+                    sendCommand(new SerialCommand("del;" + id + ";",this.command_del));
+                }
+                else
                 {
                     SensorListControl.Instance.removeSensorTab(s.tab);
                     s.tab = null;
@@ -187,7 +233,85 @@ namespace BP
         {
 
             clearSensors();
-            sendCommand("list");
+            sendCommand(new SerialCommand("list;", this.command_list));
+        }
+
+        public bool command_hi(SerialCommand.CommandReturn ret, String data)
+        {
+            string[] prm = data.Split(';');
+            if (prm.Length > 3 && prm[0].Equals("hi") && prm[1].Length == 23)
+            {
+                Console.WriteLine(prm[1]);
+                ArrayList opt = new ArrayList();
+                for (int i = 3; i < prm.Length; i++)
+                {
+                    if (prm[i].Contains("+") && !opt.Contains(prm[i]))
+                    {
+                        opt.Add(prm[i]);
+                    }
+                }
+
+                this.UUID = prm[1];
+                this.FlashSize = Int32.Parse(prm[2]);
+                this.options = opt;
+
+                this.authenticated = true;
+
+                Console.WriteLine(this.toString());
+            }
+
+            return true;
+        }
+
+        public bool command_list(SerialCommand.CommandReturn ret, String data)
+        {
+            if (ret == SerialCommand.CommandReturn.COMMAND_OK)
+            {
+                string[] subPars = data.Split(
+                        new[] { "\r\n" }, //, "\r", "\n", "\n\r"
+                        StringSplitOptions.None
+                    );
+                for (int i = 1; i < subPars.Length; i++)
+                {
+                    addSensor(subPars[i]);
+                    Console.WriteLine("Sensor: " + subPars[i]);
+                }
+            }
+            return true;
+        }
+
+        public bool command_del(SerialCommand.CommandReturn ret, String data)
+        {
+            if (ret == SerialCommand.CommandReturn.COMMAND_OK)
+            {
+                string sresultString = Regex.Match(data, @"\d+").Value;
+                int index;
+                if (Int32.TryParse(sresultString, out index))
+                {
+                    removesensor(index, true);
+                    Console.WriteLine("Del sensor:" + index);
+                }
+            }
+            return true;
+        }
+        public bool command_dhtadd(SerialCommand.CommandReturn ret, String data)
+        {
+            if (ret == SerialCommand.CommandReturn.COMMAND_OK)
+            {
+                refreshSensors();
+            }
+            return true;
+        }
+
+        public bool command_save(SerialCommand.CommandReturn ret, String data)
+        {
+            
+            return true;
+        }
+
+        public bool command_load(SerialCommand.CommandReturn ret, String data)
+        {
+            return true;
         }
 
         private void invokeCommand(string data)
@@ -331,6 +455,7 @@ namespace BP
         {
             this.closePort();
             clearSensors();
+            this.comPortThread.Abort();
         }
 
         public void flushInputBuffer()
@@ -374,9 +499,16 @@ namespace BP
                         }
                         else
                         {
-                         /*   if(l[l.Length-1] == '*')  
-                            {*/ 
-                                cmdIn.Add(l);
+                            /*   if(l[l.Length-1] == '*')  
+                               {*/
+                            if(pendingCommand != null)
+                            {
+                                if(pendingCommand.checkResponse(l))
+                                {
+                                    pendingCommand = null;
+                                }
+                            }
+                               // cmdIn.Add();
                                 Console.WriteLine("CMD:" + l);
                             //}
                         }
