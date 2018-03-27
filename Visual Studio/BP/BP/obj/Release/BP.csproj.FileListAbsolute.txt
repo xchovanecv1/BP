@@ -1,0 +1,15 @@
+C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\bin\Release\BP.exe.config
+C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\bin\Release\BP.exe
+C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\bin\Release\BP.pdb
+C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\obj\Release\BP.DHTadd.resources
+C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\obj\Release\BP.DHTControlls.resources
+C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\obj\Release\BP.Form1.resources
+C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\obj\Release\BP.Form2.resources
+C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\obj\Release\BP.Properties.Resources.resources
+C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\obj\Release\BP.SensorListControl.resources
+C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\obj\Release\BP.SensorListPage.resources
+C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\obj\Release\BP.SettingsControls.resources
+C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\obj\Release\BP.csproj.GenerateResource.Cache
+C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\obj\Release\BP.csproj.CoreCompileInputs.cache
+C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\obj\Release\BP.exe
+C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\obj\Release\BP.pdb
