@@ -108,6 +108,13 @@ namespace BP
             SerialCommand scomand;
             while (true)
             {
+                if(pendingCommand != null)
+                {
+                    if (pendingCommand.commandTimeout())
+                    {
+                        pendingCommand = null;
+                    }
+                }
                 if (comPort != null && comPort.IsOpen && comPort.CtsHolding && pendingCommand == null)
                 {
 
@@ -122,6 +129,7 @@ namespace BP
                             try
                             {
                                 comPort.WriteLine(scomand.cmd);
+                                scomand.commandSend();
                                 pendingCommand = scomand;
 
                                 cmdOut.Add(command[0]);
@@ -276,6 +284,9 @@ namespace BP
                     addSensor(subPars[i]);
                     Console.WriteLine("Sensor: " + subPars[i]);
                 }
+            } else if(ret == SerialCommand.CommandReturn.COMMAND_TIMEOUT)
+            {
+                
             }
             return true;
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,18 +9,40 @@ namespace BP
 {
     class SerialCommand
     {
-        public enum CommandReturn { COMMAND_OK = 1, COMMAND_ERROR, COMMAND_TIMEOUT};
+        public enum CommandReturn { COMMAND_OK = 1, COMMAND_ERROR, COMMAND_TIMEOUT };
         public String cmd { get; }
-        private Func<CommandReturn,String,bool> callback;
+        private Func<CommandReturn, String, bool> callback;
+
+        private Stopwatch sw;
+
+        private Int32 timeout { get; set; }
+
         public SerialCommand(String command, Func<CommandReturn, String, bool> callbac)
         {
+            this.timeout = 1000;
             this.callback = callbac;
             this.cmd = command;
         }
 
-        public void timeoutCommand()
+        public void commandSend()
         {
-            callback(CommandReturn.COMMAND_TIMEOUT, "");
+            sw = new Stopwatch();
+            sw.Start();
+        }
+
+        public bool commandTimeout()
+        {
+            if(sw != null)
+            {
+                if(sw.ElapsedMilliseconds >= timeout)
+                {
+                    sw.Stop();
+                    sw = null;
+                    callback(CommandReturn.COMMAND_TIMEOUT, "");
+                    return true;
+                }
+            }
+            return false;
         }
 
         public bool checkResponse(String input)
