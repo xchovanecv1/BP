@@ -12,6 +12,7 @@ namespace BP
         public enum CommandReturn { COMMAND_OK = 1, COMMAND_ERROR, COMMAND_TIMEOUT };
         public String cmd { get; }
         private Func<CommandReturn, String, bool> callback;
+        private Func<bool, bool> GUIUpdate;
 
         private Stopwatch sw;
 
@@ -24,10 +25,19 @@ namespace BP
             this.cmd = command;
         }
 
+        public SerialCommand(String command, Func<CommandReturn, String, bool> callbac, Func<bool,bool> GUIUpdate)
+        {
+            this.timeout = 1000;
+            this.callback = callbac;
+            this.cmd = command;
+            this.GUIUpdate = GUIUpdate;
+        }
+
         public void commandSend()
         {
             sw = new Stopwatch();
             sw.Start();
+            this.GUIUpdate?.Invoke(false);
         }
 
         public bool commandTimeout()
@@ -39,6 +49,9 @@ namespace BP
                     sw.Stop();
                     sw = null;
                     callback(CommandReturn.COMMAND_TIMEOUT, "");
+
+                    this.GUIUpdate?.Invoke(true);
+
                     return true;
                 }
             }
@@ -63,7 +76,8 @@ namespace BP
 
 
                     callback(ret, input);
-
+                    this.GUIUpdate?.Invoke(true);
+                    
                     return true;
                 }
             }

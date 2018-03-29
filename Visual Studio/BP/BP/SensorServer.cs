@@ -244,6 +244,13 @@ namespace BP
             sendCommand(new SerialCommand("list;", this.command_list));
         }
 
+        public void refreshSensors(Func<bool,bool> GUI)
+        {
+
+            clearSensors();
+            sendCommand(new SerialCommand("list;", this.command_list,GUI));
+        }
+
         public bool command_hi(SerialCommand.CommandReturn ret, String data)
         {
             string[] prm = data.Split(';');
