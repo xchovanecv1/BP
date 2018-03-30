@@ -50,8 +50,8 @@ namespace BP
                     sw = null;
                     callback(CommandReturn.COMMAND_TIMEOUT, "");
 
-                    this.GUIUpdate?.Invoke(true);
-
+                    Task.Delay(100).ContinueWith(t => this.GUIUpdate?.Invoke(true));
+                    
                     return true;
                 }
             }
@@ -76,8 +76,8 @@ namespace BP
 
 
                     callback(ret, input);
-                    this.GUIUpdate?.Invoke(true);
-                    
+                    Task.Delay(100).ContinueWith(t => this.GUIUpdate?.Invoke(true));
+
                     return true;
                 }
             }
