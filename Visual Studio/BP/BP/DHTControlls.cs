@@ -16,6 +16,7 @@ namespace BP
         delegate void UpdateHumidityDel(string val);
         delegate void UpdateTimeUpdateDel(string val);
         delegate void UpdateRefreshTimeDel(string val);
+        delegate bool ChangeButton2Del(bool enabled);
 
         public DHTSensor dhtInstance;
 
@@ -123,6 +124,30 @@ namespace BP
             }
         }
 
+        private bool ChangeButton2(bool enabled)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (this.button2.InvokeRequired)
+            {
+                ChangeButton2Del d = new ChangeButton2Del(ChangeButton2);
+                this.Invoke(d, new object[] { enabled });
+            }
+            else
+            {
+                try
+                {
+                    this.button2.Enabled = enabled;
+                }
+                catch (Exception e)
+                {
+
+                }
+            }
+            return true;
+        }
+
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -146,7 +171,17 @@ namespace BP
 
         private void button2_Click(object sender, EventArgs e)
         {
+            SetInterval sI = new SetInterval(dhtInstance.updateTime);
 
+            sI.ShowDialog();
+
+            if (dhtInstance.updateTime != (int)sI.interval)
+            {
+                dhtInstance.updateTime = (int)sI.interval;
+
+                SensorServer.Instance.sendCommand(new SerialCommand("setd;" + dhtInstance.id + ";" + sI.interval + ";", dhtInstance.updateTimeGUI, ChangeButton2));
+            }
+            
         }
 
         private void button3_Click(object sender, EventArgs e)

@@ -95,6 +95,12 @@
     <Compile Include="SensorServer.cs" />
     <Compile Include="SensorUX.cs" />
     <Compile Include="SerialCommand.cs" />
+    <Compile Include="SetInterval.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetInterval.Designer.cs">
+      <DependentUpon>SetInterval.cs</DependentUpon>
+    </Compile>
     <Compile Include="SettingsControls.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SensorListPage.resx">
       <DependentUpon>SensorListPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetInterval.resx">
+      <DependentUpon>SetInterval.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsControls.resx">
       <DependentUpon>SettingsControls.cs</DependentUpon>

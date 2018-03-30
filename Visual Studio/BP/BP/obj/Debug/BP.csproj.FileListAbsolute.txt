@@ -40,3 +40,4 @@ C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\obj\Debug\BP.Form2.resources
 C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\obj\Debug\BP.SensorListControl.resources
 C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\obj\Debug\BP.SensorListPage.resources
 C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\obj\Debug\BP.SettingsControls.resources
+C:\Users\Doktor\Documents\Visual Studio 2017\BP\BP\obj\Debug\BP.SetInterval.resources

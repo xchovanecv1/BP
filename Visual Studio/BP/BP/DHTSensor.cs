@@ -56,6 +56,16 @@ namespace BP
             }
             
         }
+
+        public bool updateTimeGUI(SerialCommand.CommandReturn res, String data)
+        {
+            if(res == SerialCommand.CommandReturn.COMMAND_OK)
+            { 
+             this.form.UpdateRefreshTime(updateTime.ToString());
+            }
+            return true;
+        }
+
         public object[] ParseInputData(string input)
         {
             string vals = input.Substring(input.IndexOf(':'));
