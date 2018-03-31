@@ -27,7 +27,7 @@ typedef struct __SerialCommand{
   uint8_t CRCvalid;
   uint8_t started;
   uint8_t pos;
-  __SerialCommand * next;
+ // __SerialCommand * next;
 } __SerialCommand;
 
 typedef enum FunctionCRC

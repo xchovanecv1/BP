@@ -182,7 +182,7 @@ void SerialCommand::begin()
   actualBuffer->CRCdata = 0;
   actualBuffer->CRCvalid = 0;
   actualBuffer->started = 0;
-  actualBuffer->next = NULL;
+ // actualBuffer->next = NULL;
 
 }
 
