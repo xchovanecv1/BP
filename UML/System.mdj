@@ -9156,11 +9156,11 @@
 											"containerExtending": false,
 											"left": -192,
 											"top": -496,
-											"width": 73.67724609375,
+											"width": 141.58447265625,
 											"height": 13,
 											"autoResize": false,
 											"underline": false,
-											"text": "(from Model)",
+											"text": "(from Serial Commands)",
 											"horizontalAlignment": 2,
 											"verticalAlignment": 5,
 											"wordWrap": false
@@ -12604,201 +12604,143 @@
 							"isFinalSpecialization": false,
 							"isLeaf": false,
 							"isActive": false
-						}
-					],
-					"visibility": "public",
-					"isAbstract": false,
-					"isFinalSpecialization": false,
-					"isLeaf": false,
-					"isIndirectlyInstantiated": true
-				},
-				{
-					"_type": "UMLClass",
-					"_id": "AAAAAAFifPqNj90evzY=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "SerialCommand",
-					"visibility": "public",
-					"attributes": [
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAFifPq81N5XSxQ=",
-							"_parent": {
-								"$ref": "AAAAAAFifPqNj90evzY="
-							},
-							"name": "SERIAL_BUFFER_SEPARATOR",
-							"visibility": "public",
-							"isStatic": false,
-							"isLeaf": false,
-							"type": "char",
-							"isReadOnly": false,
-							"isOrdered": false,
-							"isUnique": false,
-							"defaultValue": "';'",
-							"isDerived": false,
-							"aggregation": "none",
-							"isID": false
 						},
 						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAFifPsvQt9PFy8=",
+							"_type": "UMLClass",
+							"_id": "AAAAAAFifPqNj90evzY=",
 							"_parent": {
-								"$ref": "AAAAAAFifPqNj90evzY="
-							},
-							"name": "SERIAL_CRC_ENABLED",
-							"visibility": "public",
-							"isStatic": false,
-							"isLeaf": false,
-							"type": "char",
-							"isReadOnly": false,
-							"isOrdered": false,
-							"isUnique": false,
-							"defaultValue": "0",
-							"isDerived": false,
-							"aggregation": "none",
-							"isID": false
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAFifPtxY+BHiyE=",
-							"_parent": {
-								"$ref": "AAAAAAFifPqNj90evzY="
-							},
-							"name": "IOstream",
-							"visibility": "public",
-							"isStatic": false,
-							"isLeaf": false,
-							"type": "Stream",
-							"isReadOnly": false,
-							"isOrdered": false,
-							"isUnique": false,
-							"isDerived": false,
-							"aggregation": "none",
-							"isID": false
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAFifPva6OITPmE=",
-							"_parent": {
-								"$ref": "AAAAAAFifPqNj90evzY="
-							},
-							"name": "actualBuffer",
-							"visibility": "private",
-							"isStatic": false,
-							"isLeaf": false,
-							"type": {
-								"$ref": "AAAAAAFifF0y78MF25c="
-							},
-							"isReadOnly": false,
-							"isOrdered": false,
-							"isUnique": false,
-							"defaultValue": "NULL",
-							"isDerived": false,
-							"aggregation": "none",
-							"isID": false
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAFifPwnFONIM4w=",
-							"_parent": {
-								"$ref": "AAAAAAFifPqNj90evzY="
-							},
-							"name": "doneBuffer",
-							"visibility": "private",
-							"isStatic": false,
-							"isLeaf": false,
-							"type": {
-								"$ref": "AAAAAAFifF0y78MF25c="
-							},
-							"isReadOnly": false,
-							"isOrdered": false,
-							"isUnique": false,
-							"defaultValue": "NULL",
-							"isDerived": false,
-							"aggregation": "none",
-							"isID": false
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAFifPx4O+R9fs8=",
-							"_parent": {
-								"$ref": "AAAAAAFifPqNj90evzY="
-							},
-							"name": "buffBuffer",
-							"visibility": "private",
-							"isStatic": false,
-							"isLeaf": false,
-							"type": {
-								"$ref": "AAAAAAFifF0y78MF25c="
-							},
-							"isReadOnly": false,
-							"isOrdered": false,
-							"isUnique": false,
-							"defaultValue": "NULL",
-							"isDerived": false,
-							"aggregation": "none",
-							"isID": false
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAFifPzyY+bDCjE=",
-							"_parent": {
-								"$ref": "AAAAAAFifPqNj90evzY="
-							},
-							"name": "serialFunctions",
-							"visibility": "private",
-							"isStatic": false,
-							"isLeaf": false,
-							"type": {
-								"$ref": "AAAAAAFifPke+dZfxBM="
-							},
-							"isReadOnly": false,
-							"isOrdered": false,
-							"isUnique": false,
-							"isDerived": false,
-							"aggregation": "none",
-							"isID": false
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAFifP1FHuf4cq0=",
-							"_parent": {
-								"$ref": "AAAAAAFifPqNj90evzY="
-							},
-							"name": "functionCount",
-							"visibility": "private",
-							"isStatic": false,
-							"isLeaf": false,
-							"type": "uint8_t",
-							"isReadOnly": false,
-							"isOrdered": false,
-							"isUnique": false,
-							"isDerived": false,
-							"aggregation": "none",
-							"isID": false
-						}
-					],
-					"operations": [
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAFifP2VjektWys=",
-							"_parent": {
-								"$ref": "AAAAAAFifPqNj90evzY="
+								"$ref": "AAAAAAFifFy8P8J1zNE="
 							},
 							"name": "SerialCommand",
 							"visibility": "public",
-							"isStatic": false,
-							"isLeaf": false,
-							"parameters": [
+							"attributes": [
 								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifP3FPOm7D/Q=",
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFifPq81N5XSxQ=",
 									"_parent": {
-										"$ref": "AAAAAAFifP2VjektWys="
+										"$ref": "AAAAAAFifPqNj90evzY="
 									},
-									"name": "func",
+									"name": "SERIAL_BUFFER_SEPARATOR",
 									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "char",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"defaultValue": "';'",
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFifPsvQt9PFy8=",
+									"_parent": {
+										"$ref": "AAAAAAFifPqNj90evzY="
+									},
+									"name": "SERIAL_CRC_ENABLED",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "char",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"defaultValue": "0",
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFifPtxY+BHiyE=",
+									"_parent": {
+										"$ref": "AAAAAAFifPqNj90evzY="
+									},
+									"name": "IOstream",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": "Stream",
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFifPva6OITPmE=",
+									"_parent": {
+										"$ref": "AAAAAAFifPqNj90evzY="
+									},
+									"name": "actualBuffer",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFifF0y78MF25c="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"defaultValue": "NULL",
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFifPwnFONIM4w=",
+									"_parent": {
+										"$ref": "AAAAAAFifPqNj90evzY="
+									},
+									"name": "doneBuffer",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFifF0y78MF25c="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"defaultValue": "NULL",
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFifPx4O+R9fs8=",
+									"_parent": {
+										"$ref": "AAAAAAFifPqNj90evzY="
+									},
+									"name": "buffBuffer",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"type": {
+										"$ref": "AAAAAAFifF0y78MF25c="
+									},
+									"isReadOnly": false,
+									"isOrdered": false,
+									"isUnique": false,
+									"defaultValue": "NULL",
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
+								},
+								{
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFifPzyY+bDCjE=",
+									"_parent": {
+										"$ref": "AAAAAAFifPqNj90evzY="
+									},
+									"name": "serialFunctions",
+									"visibility": "private",
 									"isStatic": false,
 									"isLeaf": false,
 									"type": {
@@ -12807,552 +12749,610 @@
 									"isReadOnly": false,
 									"isOrdered": false,
 									"isUnique": false,
-									"direction": "in"
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
 								},
 								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifP3Y9OoYaTI=",
+									"_type": "UMLAttribute",
+									"_id": "AAAAAAFifP1FHuf4cq0=",
 									"_parent": {
-										"$ref": "AAAAAAFifP2VjektWys="
+										"$ref": "AAAAAAFifPqNj90evzY="
 									},
-									"name": "size",
-									"visibility": "public",
+									"name": "functionCount",
+									"visibility": "private",
 									"isStatic": false,
 									"isLeaf": false,
 									"type": "uint8_t",
 									"isReadOnly": false,
 									"isOrdered": false,
 									"isUnique": false,
-									"direction": "in"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifP3oqOp1Vys=",
-									"_parent": {
-										"$ref": "AAAAAAFifP2VjektWys="
-									},
-									"name": "stream",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "Stream",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "in"
+									"isDerived": false,
+									"aggregation": "none",
+									"isID": false
 								}
 							],
-							"concurrency": "sequential",
-							"isQuery": false,
-							"isAbstract": false
-						},
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAFifP60F+xPqs8=",
-							"_parent": {
-								"$ref": "AAAAAAFifPqNj90evzY="
-							},
-							"name": "begin",
-							"visibility": "public",
-							"isStatic": false,
-							"isLeaf": false,
-							"concurrency": "sequential",
-							"isQuery": false,
-							"isAbstract": false
-						},
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAFifP7bGu0KQYo=",
-							"_parent": {
-								"$ref": "AAAAAAFifPqNj90evzY="
-							},
-							"name": "receiveData",
-							"visibility": "public",
-							"isStatic": false,
-							"isLeaf": false,
-							"parameters": [
+							"operations": [
 								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifP7+tu2YNik=",
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFifP2VjektWys=",
 									"_parent": {
-										"$ref": "AAAAAAFifP7bGu0KQYo="
+										"$ref": "AAAAAAFifPqNj90evzY="
 									},
-									"name": "return",
+									"name": "SerialCommand",
 									"visibility": "public",
 									"isStatic": false,
 									"isLeaf": false,
-									"type": "uint8_t",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "return"
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifP3FPOm7D/Q=",
+											"_parent": {
+												"$ref": "AAAAAAFifP2VjektWys="
+											},
+											"name": "func",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFifPke+dZfxBM="
+											},
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifP3Y9OoYaTI=",
+											"_parent": {
+												"$ref": "AAAAAAFifP2VjektWys="
+											},
+											"name": "size",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "uint8_t",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifP3oqOp1Vys=",
+											"_parent": {
+												"$ref": "AAAAAAFifP2VjektWys="
+											},
+											"name": "stream",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "Stream",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
 								},
 								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifP8Lqu31P24=",
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFifP60F+xPqs8=",
 									"_parent": {
-										"$ref": "AAAAAAFifP7bGu0KQYo="
+										"$ref": "AAAAAAFifPqNj90evzY="
 									},
-									"name": "data",
+									"name": "begin",
 									"visibility": "public",
 									"isStatic": false,
 									"isLeaf": false,
-									"type": "uint8_t",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "in"
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFifP7bGu0KQYo=",
+									"_parent": {
+										"$ref": "AAAAAAFifPqNj90evzY="
+									},
+									"name": "receiveData",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifP7+tu2YNik=",
+											"_parent": {
+												"$ref": "AAAAAAFifP7bGu0KQYo="
+											},
+											"name": "return",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "uint8_t",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifP8Lqu31P24=",
+											"_parent": {
+												"$ref": "AAAAAAFifP7bGu0KQYo="
+											},
+											"name": "data",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "uint8_t",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFifP+AxO8LW2w=",
+									"_parent": {
+										"$ref": "AAAAAAFifPqNj90evzY="
+									},
+									"name": "checkCommands",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifP+gFO/zf2A=",
+											"_parent": {
+												"$ref": "AAAAAAFifP+AxO8LW2w="
+											},
+											"name": "return",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "uint8_t",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFifP/aLPCtxgk=",
+									"_parent": {
+										"$ref": "AAAAAAFifPqNj90evzY="
+									},
+									"name": "poolStream",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFifQAUt/FoOBw=",
+									"_parent": {
+										"$ref": "AAAAAAFifPqNj90evzY="
+									},
+									"name": "getParameter",
+									"visibility": "public",
+									"isStatic": true,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifQBWX/H2lxI=",
+											"_parent": {
+												"$ref": "AAAAAAFifQAUt/FoOBw="
+											},
+											"name": "return",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "uint8_t *",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifQBkMvJTIms=",
+											"_parent": {
+												"$ref": "AAAAAAFifQAUt/FoOBw="
+											},
+											"name": "separator",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "char",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifQBz5vK/dbU=",
+											"_parent": {
+												"$ref": "AAAAAAFifQAUt/FoOBw="
+											},
+											"name": "cmd",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFifF0y78MF25c="
+											},
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFifQE2SPSMnjA=",
+									"_parent": {
+										"$ref": "AAAAAAFifPqNj90evzY="
+									},
+									"name": "getParameterCount",
+									"visibility": "public",
+									"isStatic": true,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifQFoYPUaWq0=",
+											"_parent": {
+												"$ref": "AAAAAAFifQE2SPSMnjA="
+											},
+											"name": "return",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "uint8_t",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "return"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifQF12PV3UFI=",
+											"_parent": {
+												"$ref": "AAAAAAFifQE2SPSMnjA="
+											},
+											"name": "separator",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "char",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifQGDsPXUP58=",
+											"_parent": {
+												"$ref": "AAAAAAFifQE2SPSMnjA="
+											},
+											"name": "cmd",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFifF0y78MF25c="
+											},
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFifQJB1PeRCrY=",
+									"_parent": {
+										"$ref": "AAAAAAFifPqNj90evzY="
+									},
+									"name": "parseHex",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifQK3jvi2Sj8=",
+											"_parent": {
+												"$ref": "AAAAAAFifQJB1PeRCrY="
+											},
+											"name": "return",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "uint8_t",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifQLDufkTtiE=",
+											"_parent": {
+												"$ref": "AAAAAAFifQJB1PeRCrY="
+											},
+											"name": "data",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "uint8_t",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFifQNKj/qhHLs=",
+									"_parent": {
+										"$ref": "AAAAAAFifPqNj90evzY="
+									},
+									"name": "parseCrc",
+									"visibility": "private",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifQOmb/svMpA=",
+											"_parent": {
+												"$ref": "AAAAAAFifQNKj/qhHLs="
+											},
+											"name": "return",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "uint32_t",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifQOy/vuM9SU=",
+											"_parent": {
+												"$ref": "AAAAAAFifQNKj/qhHLs="
+											},
+											"name": "data",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "uint8_t",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifQPAsvv4wIY=",
+											"_parent": {
+												"$ref": "AAAAAAFifQNKj/qhHLs="
+											},
+											"name": "value",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "uint32_t*",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFifQRfV/2mnLg=",
+									"_parent": {
+										"$ref": "AAAAAAFifPqNj90evzY="
+									},
+									"name": "command_Hello",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifQUahwDl5Ws=",
+											"_parent": {
+												"$ref": "AAAAAAFifQRfV/2mnLg="
+											},
+											"name": "data",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "uint8_t*",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifQWVQgI6aQE=",
+											"_parent": {
+												"$ref": "AAAAAAFifQRfV/2mnLg="
+											},
+											"name": "cmd",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFifF0y78MF25c="
+											},
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFifQSyAP5hyvw=",
+									"_parent": {
+										"$ref": "AAAAAAFifPqNj90evzY="
+									},
+									"name": "command_CRC",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifQXu1PtufsM=",
+											"_parent": {
+												"$ref": "AAAAAAFifQSyAP5hyvw="
+											},
+											"name": "data",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "uint8_t*",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifQYI1Ptw17A=",
+											"_parent": {
+												"$ref": "AAAAAAFifQSyAP5hyvw="
+											},
+											"name": "cmd",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFifF0y78MF25c="
+											},
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
+								},
+								{
+									"_type": "UMLOperation",
+									"_id": "AAAAAAFifQTR6f+T/pI=",
+									"_parent": {
+										"$ref": "AAAAAAFifPqNj90evzY="
+									},
+									"name": "command_Help",
+									"visibility": "public",
+									"isStatic": false,
+									"isLeaf": false,
+									"parameters": [
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifQX4dPtvHN8=",
+											"_parent": {
+												"$ref": "AAAAAAFifQTR6f+T/pI="
+											},
+											"name": "data",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": "uint8_t*",
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										},
+										{
+											"_type": "UMLParameter",
+											"_id": "AAAAAAFifQYTc/txQJ8=",
+											"_parent": {
+												"$ref": "AAAAAAFifQTR6f+T/pI="
+											},
+											"name": "cmd",
+											"visibility": "public",
+											"isStatic": false,
+											"isLeaf": false,
+											"type": {
+												"$ref": "AAAAAAFifF0y78MF25c="
+											},
+											"isReadOnly": false,
+											"isOrdered": false,
+											"isUnique": false,
+											"direction": "in"
+										}
+									],
+									"concurrency": "sequential",
+									"isQuery": false,
+									"isAbstract": false
 								}
 							],
-							"concurrency": "sequential",
-							"isQuery": false,
-							"isAbstract": false
-						},
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAFifP+AxO8LW2w=",
-							"_parent": {
-								"$ref": "AAAAAAFifPqNj90evzY="
-							},
-							"name": "checkCommands",
-							"visibility": "public",
-							"isStatic": false,
+							"isAbstract": false,
+							"isFinalSpecialization": false,
 							"isLeaf": false,
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifP+gFO/zf2A=",
-									"_parent": {
-										"$ref": "AAAAAAFifP+AxO8LW2w="
-									},
-									"name": "return",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "uint8_t",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "return"
-								}
-							],
-							"concurrency": "sequential",
-							"isQuery": false,
-							"isAbstract": false
-						},
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAFifP/aLPCtxgk=",
-							"_parent": {
-								"$ref": "AAAAAAFifPqNj90evzY="
-							},
-							"name": "poolStream",
-							"visibility": "public",
-							"isStatic": false,
-							"isLeaf": false,
-							"concurrency": "sequential",
-							"isQuery": false,
-							"isAbstract": false
-						},
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAFifQAUt/FoOBw=",
-							"_parent": {
-								"$ref": "AAAAAAFifPqNj90evzY="
-							},
-							"name": "getParameter",
-							"visibility": "public",
-							"isStatic": true,
-							"isLeaf": false,
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifQBWX/H2lxI=",
-									"_parent": {
-										"$ref": "AAAAAAFifQAUt/FoOBw="
-									},
-									"name": "return",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "uint8_t *",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "return"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifQBkMvJTIms=",
-									"_parent": {
-										"$ref": "AAAAAAFifQAUt/FoOBw="
-									},
-									"name": "separator",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "char",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "in"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifQBz5vK/dbU=",
-									"_parent": {
-										"$ref": "AAAAAAFifQAUt/FoOBw="
-									},
-									"name": "cmd",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": {
-										"$ref": "AAAAAAFifF0y78MF25c="
-									},
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "in"
-								}
-							],
-							"concurrency": "sequential",
-							"isQuery": false,
-							"isAbstract": false
-						},
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAFifQE2SPSMnjA=",
-							"_parent": {
-								"$ref": "AAAAAAFifPqNj90evzY="
-							},
-							"name": "getParameterCount",
-							"visibility": "public",
-							"isStatic": true,
-							"isLeaf": false,
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifQFoYPUaWq0=",
-									"_parent": {
-										"$ref": "AAAAAAFifQE2SPSMnjA="
-									},
-									"name": "return",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "uint8_t",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "return"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifQF12PV3UFI=",
-									"_parent": {
-										"$ref": "AAAAAAFifQE2SPSMnjA="
-									},
-									"name": "separator",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "char",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "in"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifQGDsPXUP58=",
-									"_parent": {
-										"$ref": "AAAAAAFifQE2SPSMnjA="
-									},
-									"name": "cmd",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": {
-										"$ref": "AAAAAAFifF0y78MF25c="
-									},
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "in"
-								}
-							],
-							"concurrency": "sequential",
-							"isQuery": false,
-							"isAbstract": false
-						},
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAFifQJB1PeRCrY=",
-							"_parent": {
-								"$ref": "AAAAAAFifPqNj90evzY="
-							},
-							"name": "parseHex",
-							"visibility": "private",
-							"isStatic": false,
-							"isLeaf": false,
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifQK3jvi2Sj8=",
-									"_parent": {
-										"$ref": "AAAAAAFifQJB1PeRCrY="
-									},
-									"name": "return",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "uint8_t",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "in"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifQLDufkTtiE=",
-									"_parent": {
-										"$ref": "AAAAAAFifQJB1PeRCrY="
-									},
-									"name": "data",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "uint8_t",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "in"
-								}
-							],
-							"concurrency": "sequential",
-							"isQuery": false,
-							"isAbstract": false
-						},
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAFifQNKj/qhHLs=",
-							"_parent": {
-								"$ref": "AAAAAAFifPqNj90evzY="
-							},
-							"name": "parseCrc",
-							"visibility": "private",
-							"isStatic": false,
-							"isLeaf": false,
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifQOmb/svMpA=",
-									"_parent": {
-										"$ref": "AAAAAAFifQNKj/qhHLs="
-									},
-									"name": "return",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "uint32_t",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "in"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifQOy/vuM9SU=",
-									"_parent": {
-										"$ref": "AAAAAAFifQNKj/qhHLs="
-									},
-									"name": "data",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "uint8_t",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "in"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifQPAsvv4wIY=",
-									"_parent": {
-										"$ref": "AAAAAAFifQNKj/qhHLs="
-									},
-									"name": "value",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "uint32_t*",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "in"
-								}
-							],
-							"concurrency": "sequential",
-							"isQuery": false,
-							"isAbstract": false
-						},
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAFifQRfV/2mnLg=",
-							"_parent": {
-								"$ref": "AAAAAAFifPqNj90evzY="
-							},
-							"name": "command_Hello",
-							"visibility": "public",
-							"isStatic": false,
-							"isLeaf": false,
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifQUahwDl5Ws=",
-									"_parent": {
-										"$ref": "AAAAAAFifQRfV/2mnLg="
-									},
-									"name": "data",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "uint8_t*",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "in"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifQWVQgI6aQE=",
-									"_parent": {
-										"$ref": "AAAAAAFifQRfV/2mnLg="
-									},
-									"name": "cmd",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": {
-										"$ref": "AAAAAAFifF0y78MF25c="
-									},
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "in"
-								}
-							],
-							"concurrency": "sequential",
-							"isQuery": false,
-							"isAbstract": false
-						},
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAFifQSyAP5hyvw=",
-							"_parent": {
-								"$ref": "AAAAAAFifPqNj90evzY="
-							},
-							"name": "command_CRC",
-							"visibility": "public",
-							"isStatic": false,
-							"isLeaf": false,
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifQXu1PtufsM=",
-									"_parent": {
-										"$ref": "AAAAAAFifQSyAP5hyvw="
-									},
-									"name": "data",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "uint8_t*",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "in"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifQYI1Ptw17A=",
-									"_parent": {
-										"$ref": "AAAAAAFifQSyAP5hyvw="
-									},
-									"name": "cmd",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": {
-										"$ref": "AAAAAAFifF0y78MF25c="
-									},
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "in"
-								}
-							],
-							"concurrency": "sequential",
-							"isQuery": false,
-							"isAbstract": false
-						},
-						{
-							"_type": "UMLOperation",
-							"_id": "AAAAAAFifQTR6f+T/pI=",
-							"_parent": {
-								"$ref": "AAAAAAFifPqNj90evzY="
-							},
-							"name": "command_Help",
-							"visibility": "public",
-							"isStatic": false,
-							"isLeaf": false,
-							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifQX4dPtvHN8=",
-									"_parent": {
-										"$ref": "AAAAAAFifQTR6f+T/pI="
-									},
-									"name": "data",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": "uint8_t*",
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "in"
-								},
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAFifQYTc/txQJ8=",
-									"_parent": {
-										"$ref": "AAAAAAFifQTR6f+T/pI="
-									},
-									"name": "cmd",
-									"visibility": "public",
-									"isStatic": false,
-									"isLeaf": false,
-									"type": {
-										"$ref": "AAAAAAFifF0y78MF25c="
-									},
-									"isReadOnly": false,
-									"isOrdered": false,
-									"isUnique": false,
-									"direction": "in"
-								}
-							],
-							"concurrency": "sequential",
-							"isQuery": false,
-							"isAbstract": false
+							"isActive": false
 						}
 					],
+					"visibility": "public",
 					"isAbstract": false,
 					"isFinalSpecialization": false,
 					"isLeaf": false,
-					"isActive": false
+					"isIndirectlyInstantiated": true
 				}
 			],
 			"visibility": "public"
