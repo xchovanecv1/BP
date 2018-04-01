@@ -10,10 +10,10 @@
 #include "SensorManager.h"
 #include "DHTManaged.h"
 #include "DHT.h"
-#include "RTClib.h"
-#include "RTC_Buildin.h"
+//#include "RTClib.h"
+//#include "RTC_Buildin.h"
 
-RTC_Buildin rtc;
+//RTC_Buildin rtc;
 
 SensorManager sensorManagement(&Serial1);
 
@@ -32,6 +32,8 @@ void command_LoadSens(uint8_t * data, struct __SerialCommand*,Stream * out);
 void command_FlushSens(uint8_t * data, struct __SerialCommand*,Stream * out);
 void command_SetSensDelay(uint8_t * data, struct __SerialCommand*,Stream * out);
 
+void command_SetPwmDuty(uint8_t * data, struct __SerialCommand*,Stream * out);
+
 SerialFunction commands[]={
     {"dhtadd", "pin[];DHT[(11/21/22)];updateTime[s]",FUNCTION_CRC_FORCE,command_AddDHT},
     {"list", "",FUNCTION_CRC_VAGUE,command_ListSens},
@@ -39,7 +41,8 @@ SerialFunction commands[]={
     {"save", "",FUNCTION_CRC_VAGUE,command_SaveSens},
     {"load", "",FUNCTION_CRC_VAGUE,command_LoadSens},
     {"flush", "",FUNCTION_CRC_VAGUE,command_FlushSens},
-    {"setd", "id[];delay[UL];",FUNCTION_CRC_VAGUE,command_SetSensDelay},
+    {"setd", "id[];delay[UL];",FUNCTION_CRC_FORCE,command_SetSensDelay},
+    {"pwms", "val[0-65535]",FUNCTION_CRC_FORCE,command_SetPwmDuty},
   };
 
 SerialCommand serialHandler(commands,(sizeof(commands)/sizeof(SerialFunction)),&Serial1);
@@ -47,6 +50,28 @@ SerialCommand serialHandler(commands,(sizeof(commands)/sizeof(SerialFunction)),&
 ManagedTypes managedType[]={
     {SENSOR_DHT,DHTManaged::SAVE_SIZE,DHTManaged::loadSensor}
   };
+
+void command_SetPwmDuty(uint8_t * data, struct __SerialCommand * cmd,Stream * out)
+{
+  uint8_t paramCount = SerialCommand::getParameterCount(';',cmd);
+  if(paramCount == 1)
+  {
+    uint8_t *param;
+    uint16_t val = 0;
+    
+    if(!(param = SerialCommand::getParameter(';',cmd))) return;
+    val = atoi((char*)param);
+
+    pwmWrite(PB6,val);
+    out->print("pwms: OK");
+    
+   } else {
+      // Nespravny pocet parametrov
+      out->print("pwms ERROR: expected 1 parameters, given ");
+      out->print(paramCount,DEC);
+   }
+}
+
 
 void command_AddDHT(uint8_t * data, struct __SerialCommand * cmd,Stream * out)
 {
@@ -184,10 +209,13 @@ void setup() {
   iwdg_init(IWDG_PRE_256, 625); // 4 seconds
   
   // Inicializacia RTC hodin
-  rtc.begin(DateTime(F(__DATE__), F(__TIME__)));
+//  rtc.begin(DateTime(F(__DATE__), F(__TIME__)));
 
   // Nacitanie vsetkych senzorov ulozenych v pamati EEPROM
   sensorManagement.load();
+
+  pinMode(PB6,PWM);
+  pwmWrite(PB6,0);
 
 }
 

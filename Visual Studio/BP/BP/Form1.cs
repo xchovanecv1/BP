@@ -395,6 +395,7 @@ namespace BP
 
         private void button3_Click(object sender, EventArgs e)
         {
+            server.closePort();
             this.Close();
         }
 

@@ -192,7 +192,7 @@ namespace BP
             saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
             saveFileDialog1.FilterIndex = 2;
             saveFileDialog1.RestoreDirectory = true;
-            saveFileDialog1.FileName = " Default.csv";
+            saveFileDialog1.FileName = dhtInstance.tabName+".csv";
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {

@@ -41,3 +41,4 @@ C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\obj\Debug\BP.SensorListContro
 C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\obj\Debug\BP.SensorListPage.resources
 C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\obj\Debug\BP.SettingsControls.resources
 C:\Users\Doktor\Documents\Visual Studio 2017\BP\BP\obj\Debug\BP.SetInterval.resources
+C:\Users\Doktor\Documents\Visual Studio 2017\BP\BP\obj\Debug\BP.PWM.resources

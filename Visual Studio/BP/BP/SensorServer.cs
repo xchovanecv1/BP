@@ -29,7 +29,7 @@ namespace BP
         private Dictionary<int, DHTSensor> DHTSensors = new Dictionary<int, DHTSensor>();
 
         private Thread comPortThread;
-
+        private bool comPortClosing = false;        
 
         private bool authenticated = false;
         private bool writeTimeOut = false;
@@ -84,7 +84,14 @@ namespace BP
 
         public void closePort()
         {
-            this.comPort.Close();
+            try { 
+                this.comPort.Close();
+            } catch(Exception ex)
+            {
+
+            }
+            comPortClosing = true;
+            //this.comPort = null;
         }
 
 
@@ -108,6 +115,12 @@ namespace BP
             SerialCommand scomand;
             while (true)
             {
+                if (comPortClosing)
+                {
+                    comPortClosing = false;
+                    return;
+                }
+
                 if(pendingCommand != null)
                 {
                     if (pendingCommand.commandTimeout())
@@ -115,36 +128,36 @@ namespace BP
                         pendingCommand = null;
                     }
                 }
-                if (comPort != null && comPort.IsOpen && comPort.CtsHolding && pendingCommand == null)
-                {
-
-                    if (cmdPending.Count > 0)
+                    if(comPort != null && comPort.IsOpen && comPort.CtsHolding && pendingCommand == null)
                     {
-                        scomand = cmdPending.Dequeue();
-                        //Console.WriteLine("IDE VEN:"+cmd);
-                        string[] command = scomand.cmd.Split(';');
-                        if (command.Length > 0)
+
+                        if (cmdPending.Count > 0)
                         {
-                            //;
-                            try
+                            scomand = cmdPending.Dequeue();
+                            //Console.WriteLine("IDE VEN:"+cmd);
+                            string[] command = scomand.cmd.Split(';');
+                            if (command.Length > 0)
                             {
-                                comPort.WriteLine(scomand.cmd);
-                                scomand.commandSend();
-                                pendingCommand = scomand;
+                                //;
+                                try
+                                {
+                                    comPort.WriteLine(scomand.cmd);
+                                    scomand.commandSend();
+                                    pendingCommand = scomand;
 
-                                cmdOut.Add(command[0]);
-                            }
-                            catch (TimeoutException e)
-                            {
-                                this.writeTimeOut = true;
-                            }
-                            catch (Exception e)
-                            {
+                                    cmdOut.Add(command[0]);
+                                }
+                                catch (TimeoutException e)
+                                {
+                                    this.writeTimeOut = true;
+                                }
+                                catch (Exception e)
+                                {
 
+                                }
                             }
                         }
                     }
-                }
                 Thread.Sleep(100);
             }
         }
@@ -473,7 +486,7 @@ namespace BP
         {
             this.closePort();
             clearSensors();
-            this.comPortThread.Abort();
+            //this.comPortThread.Abort();
         }
 
         public void flushInputBuffer()

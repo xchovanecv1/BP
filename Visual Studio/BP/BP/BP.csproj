@@ -79,6 +79,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="PWM.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PWM.Designer.cs">
+      <DependentUpon>PWM.cs</DependentUpon>
+    </Compile>
     <Compile Include="SensorBackend.cs" />
     <Compile Include="SensorListControl.cs">
       <SubType>UserControl</SubType>
@@ -123,6 +129,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PWM.resx">
+      <DependentUpon>PWM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SensorListControl.resx">
       <DependentUpon>SensorListControl.cs</DependentUpon>

@@ -79,14 +79,14 @@ namespace BP
             buttonPanel.Height = button2.Height;
             buttonPanel.Top = button2.Top;
 
-            if (!contentPanel.Controls.Contains(SettingsControls.Instance))
+            if (!contentPanel.Controls.Contains(PWM.Instance))
             {
-                contentPanel.Controls.Add(SettingsControls.Instance);
-                SettingsControls.Instance.Dock = DockStyle.Fill;
-                SettingsControls.Instance.BringToFront();
+                contentPanel.Controls.Add(PWM.Instance);
+                PWM.Instance.Dock = DockStyle.Fill;
+                PWM.Instance.BringToFront();
             }
             else
-                SettingsControls.Instance.BringToFront();
+                PWM.Instance.BringToFront();
         }
 
         private void label1_Click(object sender, EventArgs e)
