@@ -42,3 +42,21 @@ C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\obj\Debug\BP.SensorListPage.r
 C:\Users\Viktor\Documents\Visual Studio 2017\BP\BP\obj\Debug\BP.SettingsControls.resources
 C:\Users\Doktor\Documents\Visual Studio 2017\BP\BP\obj\Debug\BP.SetInterval.resources
 C:\Users\Doktor\Documents\Visual Studio 2017\BP\BP\obj\Debug\BP.PWM.resources
+C:\Users\Viktor\Documents\GitHub\BP\Visual Studio\BP\BP\bin\Debug\BP.exe.config
+C:\Users\Viktor\Documents\GitHub\BP\Visual Studio\BP\BP\bin\Debug\BP.exe
+C:\Users\Viktor\Documents\GitHub\BP\Visual Studio\BP\BP\bin\Debug\BP.pdb
+C:\Users\Viktor\Documents\GitHub\BP\Visual Studio\BP\BP\obj\Debug\BP.csprojResolveAssemblyReference.cache
+C:\Users\Viktor\Documents\GitHub\BP\Visual Studio\BP\BP\obj\Debug\BP.DHTadd.resources
+C:\Users\Viktor\Documents\GitHub\BP\Visual Studio\BP\BP\obj\Debug\BP.DHTControlls.resources
+C:\Users\Viktor\Documents\GitHub\BP\Visual Studio\BP\BP\obj\Debug\BP.Form1.resources
+C:\Users\Viktor\Documents\GitHub\BP\Visual Studio\BP\BP\obj\Debug\BP.Form2.resources
+C:\Users\Viktor\Documents\GitHub\BP\Visual Studio\BP\BP\obj\Debug\BP.Properties.Resources.resources
+C:\Users\Viktor\Documents\GitHub\BP\Visual Studio\BP\BP\obj\Debug\BP.PWM.resources
+C:\Users\Viktor\Documents\GitHub\BP\Visual Studio\BP\BP\obj\Debug\BP.SensorListControl.resources
+C:\Users\Viktor\Documents\GitHub\BP\Visual Studio\BP\BP\obj\Debug\BP.SensorListPage.resources
+C:\Users\Viktor\Documents\GitHub\BP\Visual Studio\BP\BP\obj\Debug\BP.SetInterval.resources
+C:\Users\Viktor\Documents\GitHub\BP\Visual Studio\BP\BP\obj\Debug\BP.SettingsControls.resources
+C:\Users\Viktor\Documents\GitHub\BP\Visual Studio\BP\BP\obj\Debug\BP.csproj.GenerateResource.Cache
+C:\Users\Viktor\Documents\GitHub\BP\Visual Studio\BP\BP\obj\Debug\BP.csproj.CoreCompileInputs.cache
+C:\Users\Viktor\Documents\GitHub\BP\Visual Studio\BP\BP\obj\Debug\BP.exe
+C:\Users\Viktor\Documents\GitHub\BP\Visual Studio\BP\BP\obj\Debug\BP.pdb

@@ -395,8 +395,15 @@ namespace BP
 
         private void button3_Click(object sender, EventArgs e)
         {
-            server.closePort();
+            try
+            {
+                server.closePort();
+            } catch(Exception ex)
+            {
+
+            }
             this.Close();
+            Environment.Exit(Environment.ExitCode);
         }
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
